@@ -1,0 +1,63 @@
+  
+ 
+    .creat {
+        width:500px;
+        margin-top:130px;
+        margin-left:400px;
+        margin-right:400px;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 10px;
+         position:absolute;
+    }
+     button[type=submit]{
+        margin:8px ;
+        width:80px;
+        margin-left:140px;
+        border-radius: 5px;
+    }
+    input[type=text], select {
+         margin-left:47px;
+        width: 50%;
+        padding: 12px 20px;
+      
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        
+        
+      
+    }
+    input[type=number], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+         margin-left:43px;
+         
+    }
+    input[type=password], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc
+        border-radius: 4px;
+        margin-left:20px;
+        
+    }
+    option{
+         margin-left:100px;
+        height:0px;
+        width:20%;
+        border-radius: 5px;
+        position:absolute;
+    }
+    h3{ 
+margin-top:100px;
+ font-family: "Times New Roman", Times, serif;
+  
+    position:absolute;
+}

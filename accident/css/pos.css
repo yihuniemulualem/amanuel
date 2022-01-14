@@ -1,0 +1,31 @@
+.post{
+	height:400px;
+    margin-top:130px;
+    margin-left:300px;
+    margin-right:250px;
+    width:auto;
+    height:auto;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 40px;
+   position:absolute;
+}
+input[type=text],select{
+    width:400px;
+    height:30px;
+    margin-left:86px;
+    font-size:18px;
+}
+textarea[type=text_area],select{
+    width:600px;
+    height:200px;
+    margin-left:86px;
+}
+input[type=file],select{
+    width:80%;height:40px;margin-left:86px;
+}
+#but{
+    width:80px;
+    margin-left:200px;
+    margin-top:5px;
+}

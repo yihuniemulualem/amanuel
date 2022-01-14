@@ -1,0 +1,90 @@
+
+<?php
+session_start();
+if(isset($_SESSION['Teamcontroler']))
+{
+  
+ echo"<p class='alert alert-success' style='color:red;margin-left:1190px;margin-right:10px;margin-top:80px;position:absolute;overflow:visible'>"."<b style='color:blue;'>Welcome\t:</b> ".$_SESSION['u_namee']."</p>";
+
+}else{
+header("refresh:1 url=login.php");
+
+}
+
+?>
+
+
+
+
+$_SESSION['u_namee']=$user;
+          $_SESSION['admin']=$user;
+          session_write_close();
+          header("Location:post.php");
+          exit();
+
+
+
+//  <?php
+session_start();
+$con=mysqli_connect('localhost','root','');
+	mysqli_select_db($con,'finalproject');
+	$username= stripslashes(mysqli_real_escape_string($con,$_POST['username']));
+	$password= stripslashes(mysqli_real_escape_string($con,$_POST['password']));
+	$dbadmnuname="";
+	$dbadmnpass="";
+	$dbactype="";
+	$dbfname="";
+	$dblname1="";
+	$dbemail="";
+	$passdec=md5($_POST['password']);
+    
+$query=mysqli_query($con,"SELECT * FROM account where username='$username' AND password='$passdec'");
+$count=mysqli_num_rows($query);
+while($row=mysqli_fetch_array($query))
+		{
+			$dbadmnuname=$row['username'];
+			$dbadmnpass=$row['password'];
+			$dbactype=$row['user_type'];
+			$dbfname=$row['fname'];
+			$dblname1=$row['lname'];
+			$dbemail=$row['email'];	
+			$dbtinnum=$row['tinnumber'];	
+			$dbbank=$row['bankaccount'];					
+		}
+		/* $enc = base64_decode($dbadmnpass); */
+		if($username==$dbadmnuname&&$passdec==$dbadmnpass && $dbactype=='admin'){
+			       $_SESSION["name"] = $dbadmnuname;
+					$_SESSION["type"]=$dbactype;
+					$_SESSION["fname"]=$dbfname;
+					$_SESSION["lname"]=$dblname1;
+					
+			$url="Location:home_page.php";
+			header($url);
+		}else if($username==$dbadmnuname && $passdec==$dbadmnpass && $dbactype=='employee'){
+			$_SESSION["name"] = $dbadmnuname;
+					$_SESSION["type"]=$dbactype;
+					$_SESSION["fname"]=$dbfname;
+					$_SESSION["lname"]=$dblname1;
+					
+			$url="Location:employee_home.php";
+			header($url);
+			}else if($username==$dbadmnuname&&$passdec==$dbadmnpass && $dbactype=='customer')
+			{
+			$_SESSION["name"] = $dbadmnuname;
+			$_SESSION["type"]=$dbactype;
+			$_SESSION["fname"]=$dbfname;
+			$_SESSION["lname"]=$dblname1;
+			$_SESSION["email"]=$dbemail;
+			$_SESSION["tinnum"]=$dbtinnum;					
+			$_SESSION["bank"]=$dbbank;					
+			$url="Location:cust_account_home.php";
+			header($url);
+			}
+				
+				else{	
+				/* echo" ".$passdec.""; */
+				$_SESSION["Error"]="Error";
+				$url="Location:login_allow.php";
+					header($url);
+}
+?>

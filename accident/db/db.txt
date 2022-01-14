@@ -1,0 +1,78 @@
+/*Our data base name is aims*/
+
+create database aims
+
+/* This is login table*/
+
+create table loginn(
+uname varchar(20) primary key not null,
+psw varchar(20)not null,
+id int
+);
+
+
+/* This is user type  table*/
+
+create table usertype(
+ut_id int primary key identity(1,1),
+ustype varchar(100)
+);
+
+
+/* This is creat table use to add new user */
+create table creat(
+phone int not null ,
+fname varchar(20) not null,
+lname varchar(20) not null,
+sex char  check(sex='female'or sex='male')not null,
+email varchar(40) not null,
+uname varchar(20) not null,
+psw varchar(20) not null
+);
+
+
+/* To psot some information then  table*/
+create table post(
+titl varchar(40) not null,
+content varchar(8000) not null,
+imag image
+);
+
+
+/*This is add fil table*/
+
+create table add_fil(
+fil_id int not null,
+ful_name varchar(20) not null,
+sex char  check(sex='female'or sex='male')not null,
+age int,
+dbrth varchar(25) not null,
+phone int,
+t_acci varchar(15) not null,
+addr varchar(25) not null,
+dat varchar(25) not null,
+tim varchar(25) not null,
+peop_die int,
+content varchar(8000) not null 
+);
+
+
+/*This is  reporte tables*/
+
+create table rport(
+ofname varchar(20) not null,
+content varchar(7000) not null
+);
+
+
+
+/*insert valuese in to each tables*/
+
+insert into loginn values('zki','123tes',1);
+insert into loginn values('siraj','123tes',1);
+insert into loginn values('yordi','123tes',2);
+insert into loginn values('tadi','123tes',2);
+insert into loginn values('tesfaye','123tes',3);
+
+
+insert into usertype values('Admin'),('Officer'),('Teamcontroler');
